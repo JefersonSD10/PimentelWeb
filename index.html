@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Comercial 600m² · Pimentel — Alquiler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0B0D0F;
+  --bone:#F8F4EE;
+  --warm:#EDE6D9;
+  --terra:#C4622D;
+  --gold:#B8924A;
+  --goldl:#D4AC6A;
+  --ocean:#1B3A52;
+  --oceanl:#2A5878;
+  --mist:rgba(248,244,238,0.06);
+  --glass:rgba(248,244,238,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--bone);overflow-x:hidden;cursor:none}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;z-index:9999;pointer-events:none;mix-blend-mode:difference}
+.cursor-dot{width:8px;height:8px;background:var(--bone);border-radius:50%;transform:translate(-50%,-50%);transition:transform .1s}
+.cursor-ring{width:40px;height:40px;border:1.5px solid var(--bone);border-radius:50%;transform:translate(-50%,-50%);transition:all .18s ease;position:fixed;z-index:9998;pointer-events:none}
+body:hover .cursor-dot{transform:translate(-50%,-50%) scale(1)}
+a:hover ~ .cursor-ring,.btn:hover ~ .cursor-ring{transform:translate(-50%,-50%) scale(2)}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:1.8rem 4rem;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:all .5s cubic-bezier(.16,1,.3,1);
+}
+nav.solid{
+  background:rgba(11,13,15,0.92);
+  backdrop-filter:blur(24px);
+  padding:1.2rem 4rem;
+  border-bottom:1px solid rgba(184,146,74,0.2);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:600;
+  color:var(--gold);letter-spacing:2px;
+  text-decoration:none;
+}
+.nav-logo span{color:var(--bone);font-weight:300}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{
+  color:rgba(248,244,238,0.65);
+  text-decoration:none;font-size:0.78rem;
+  letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:500;
+  transition:color .25s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s cubic-bezier(.16,1,.3,1);
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta-btn{
+  background:var(--terra);color:white!important;
+  padding:.55rem 1.6rem;border-radius:2px;
+  font-size:0.75rem!important;letter-spacing:2px!important;
+  transition:background .25s,transform .2s!important;
+}
+.nav-cta-btn::after{display:none!important}
+.nav-cta-btn:hover{background:#a84f22!important;transform:translateY(-1px)!important}
+
+/* HERO */
+.hero{
+  height:100vh;min-height:700px;
+  position:relative;display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+.hero-left{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:7rem 4rem 4rem 5rem;
+  background:var(--ink);
+}
+.hero-left::before{
+  content:'';
+  position:absolute;top:0;right:-120px;bottom:0;width:240px;
+  background:var(--ink);
+  transform:skewX(-6deg);
+  z-index:3;
+}
+.hero-right{
+  position:relative;overflow:hidden;
+}
+.hero-right img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transform:scale(1.08);
+  animation:heroZoom 18s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1.15)}}
+.hero-right::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to right, var(--ink) 0%, transparent 35%);
+}
+
+.hero-eyebrow{
+  font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--terra);font-weight:600;margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--terra)}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,6vw,6rem);
+  font-weight:300;line-height:1.0;
+  color:var(--bone);margin-bottom:.5rem;
+}
+.hero-title em{
+  font-style:italic;color:var(--gold);
+  display:block;font-size:1.15em;
+}
+.hero-title strong{
+  font-weight:700;font-size:.85em;
+  display:block;
+  -webkit-text-stroke:1px var(--bone);
+  color:transparent;
+}
+
+.hero-desc{
+  margin:1.8rem 0 2.5rem;
+  font-size:.95rem;line-height:1.8;
+  color:rgba(248,244,238,0.55);
+  max-width:380px;font-weight:300;
+}
+.hero-desc strong{color:var(--goldl)}
+
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-fill{
+  background:var(--terra);color:white;
+  border:none;padding:.9rem 2rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:600;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;
+  border-radius:2px;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 8px 32px rgba(196,98,45,0.3);
+}
+.btn-fill:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(196,98,45,0.45)}
+.btn-ghost{
+  background:transparent;color:var(--bone);
+  border:1px solid rgba(248,244,238,0.3);
+  padding:.9rem 2rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:500;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;
+  border-radius:2px;
+  transition:all .3s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin-top:2.5rem;
+  border:1px solid rgba(184,146,74,0.25);
+  border-radius:4px;
+  overflow:hidden;
+  max-width:420px;
+}
+.hero-stat{
+  padding:1rem 0;
+  background:rgba(184,146,74,0.08);
+  border-right:1px solid rgba(184,146,74,0.2);
+  text-align:center;
+}
+.hero-stat:last-child{border-right:none}
+.stat-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;color:var(--gold);line-height:1;
+}
+.stat-l{
+  font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(248,244,238,0.45);margin-top:.3rem;
+}
+
+/* MARQUEE */
+.marquee-wrap{
+  background:var(--terra);
+  padding:.65rem 0;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+.marquee-inner{
+  display:flex;gap:3rem;white-space:nowrap;
+  animation:marquee 25s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-inner span{
+  font-size:.7rem;letter-spacing:3px;text-transform:uppercase;
+  font-weight:600;color:rgba(255,255,255,0.9);
+}
+.marquee-inner .dot{color:rgba(255,255,255,0.4)}
+
+/* SECTION COMMON */
+.section-tag{
+  font-size:.68rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--terra);font-weight:600;
+  display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;
+}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--terra)}
+.section-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  font-weight:300;line-height:1.1;
+}
+.section-h em{font-style:italic;color:var(--gold)}
+
+/* SOBRE */
+.sobre{
+  padding:8rem 5rem;
+  display:grid;grid-template-columns:1fr 1.1fr;gap:6rem;
+  align-items:center;background:var(--bone);color:var(--ink);
+  position:relative;overflow:hidden;
+}
+.sobre::before{
+  content:'600';
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28vw;color:rgba(11,13,15,0.04);
+  position:absolute;right:-3rem;top:50%;
+  transform:translateY(-50%);
+  line-height:1;pointer-events:none;
+  white-space:nowrap;
+}
+.sobre .section-tag{color:var(--terra)}
+.sobre .section-tag::before{background:var(--terra)}
+.sobre-body{font-size:1rem;line-height:1.9;color:#444;font-weight:300}
+.sobre-body p{margin-bottom:1rem}
+.sobre-body strong{color:var(--ink);font-weight:600}
+
+.info-cards{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.info-card{
+  display:flex;align-items:flex-start;gap:1.2rem;
+  padding:1.2rem 1.5rem;
+  background:white;
+  border-left:3px solid var(--terra);
+  border-radius:0 6px 6px 0;
+  box-shadow:0 2px 20px rgba(0,0,0,0.06);
+}
+.info-card-icon{font-size:1.4rem;margin-top:.1rem}
+.info-card strong{
+  display:block;font-size:.72rem;letter-spacing:2px;
+  text-transform:uppercase;color:var(--terra);margin-bottom:.3rem;
+}
+.info-card span{font-size:.92rem;color:#333;line-height:1.5}
+
+/* MAP CARD */
+.map-card{
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.18);
+  border:1px solid rgba(0,0,0,0.08);
+}
+.map-card iframe{width:100%;height:280px;display:block;border:none}
+.map-footer{
+  padding:1.2rem 1.5rem;background:white;
+  display:flex;align-items:center;gap:.8rem;
+}
+.map-footer-icon{font-size:1.5rem}
+.map-footer strong{font-size:.95rem;color:var(--ink);display:block}
+.map-footer small{font-size:.8rem;color:#666}
+.map-badges{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  padding:.8rem 1.5rem 1.2rem;background:white;
+  border-top:1px solid #f0f0f0;
+}
+.mbadge{
+  background:var(--warm);color:var(--ocean);
+  font-size:.7rem;font-weight:600;letter-spacing:1px;
+  padding:.3rem .9rem;border-radius:20px;
+}
+
+/* PISOS */
+.pisos{padding:7rem 5rem;background:var(--ink)}
+.pisos-header{text-align:center;max-width:640px;margin:0 auto 4rem}
+.pisos-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;
+  border:1px solid rgba(248,244,238,0.08);
+  border-radius:4px;overflow:hidden;
+}
+.piso-card{
+  padding:2.8rem 2.2rem;
+  background:rgba(248,244,238,0.03);
+  border-right:1px solid rgba(248,244,238,0.08);
+  transition:background .4s;
+  position:relative;overflow:hidden;
+}
+.piso-card:last-child{border-right:none}
+.piso-card::before{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--terra),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.piso-card:hover{background:rgba(248,244,238,0.06)}
+.piso-card:hover::before{transform:scaleX(1)}
+.piso-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:5rem;line-height:1;
+  color:rgba(248,244,238,0.07);
+  margin-bottom:-.5rem;
+  display:block;
+}
+.piso-label{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:600;
+  color:var(--gold);margin-bottom:1.5rem;
+}
+.piso-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.piso-list li{
+  font-size:.88rem;color:rgba(248,244,238,0.7);
+  display:flex;align-items:flex-start;gap:.7rem;line-height:1.5;
+}
+.piso-list li::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--terra);margin-top:.45rem;flex-shrink:0;
+}
+
+/* GALLERY MEGA */
+.gallery-section{padding:7rem 5rem;background:#080A0C}
+.gallery-header{
+  display:flex;justify-content:space-between;
+  align-items:flex-end;margin-bottom:3rem;
+}
+.gallery-tabs{
+  display:flex;gap:.5rem;
+  background:rgba(248,244,238,0.05);
+  border-radius:3px;padding:.35rem;
+}
+.gtab{
+  padding:.5rem 1.2rem;border:none;background:transparent;
+  color:rgba(248,244,238,0.45);font-family:'DM Sans',sans-serif;
+  font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;border-radius:2px;transition:all .25s;font-weight:500;
+}
+.gtab.active{background:var(--terra);color:white}
+
+.gallery-panels{position:relative}
+.g-panel{display:none}
+.g-panel.active{display:grid}
+
+/* EXTERIOR - 2 big */
+.g-panel.exterior{
+  grid-template-columns:1fr 1fr;gap:3px;height:520px;
+}
+/* PRIMER PISO - 3 equal */
+.g-panel.primer_piso{
+  grid-template-columns:repeat(3,1fr);gap:3px;height:480px;
+}
+/* RESTAURANTE - magazine mosaic */
+.g-panel.restaurante{
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:260px 260px;
+  gap:3px;
+}
+.g-panel.restaurante .gi:nth-child(1){grid-row:span 2}
+.g-panel.restaurante .gi:nth-child(4){grid-column:span 2}
+
+/* COCINA - trio */
+.g-panel.cocina{
+  grid-template-columns:1.3fr 1fr;
+  grid-template-rows:260px 260px;gap:3px;
+}
+.g-panel.cocina .gi:nth-child(1){grid-row:span 2}
+
+/* AMBIENTE */
+.g-panel.ambiente{
+  grid-template-columns:1fr 1fr;gap:3px;height:480px;
+}
+
+.gi{
+  position:relative;overflow:hidden;background:#111;cursor:pointer;
+}
+.gi img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .7s cubic-bezier(.16,1,.3,1),filter .4s;
+  filter:brightness(.92) saturate(1.1);
+}
+.gi:hover img{transform:scale(1.07);filter:brightness(1) saturate(1.25)}
+.gi-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(11,13,15,.65) 0%,transparent 60%);
+  opacity:0;transition:opacity .35s;
+}
+.gi:hover .gi-overlay{opacity:1}
+.gi-zoom{
+  position:absolute;bottom:1rem;right:1rem;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(248,244,238,0.15);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;opacity:0;transition:opacity .3s;
+  border:1px solid rgba(248,244,238,0.2);
+}
+.gi:hover .gi-zoom{opacity:1}
+
+/* LIGHTBOX */
+.lb{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(5,7,9,.98);
+  display:none;align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.lb.on{display:flex}
+.lb-img{
+  max-width:90vw;max-height:80vh;
+  object-fit:contain;border-radius:4px;
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+.lb-close{
+  position:absolute;top:2rem;right:2.5rem;
+  font-size:1.5rem;color:rgba(248,244,238,0.5);
+  background:none;border:none;cursor:pointer;
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;border:1px solid rgba(248,244,238,0.15);
+  transition:all .2s;
+}
+.lb-close:hover{color:white;border-color:white}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(248,244,238,0.08);border:1px solid rgba(248,244,238,0.15);
+  color:white;width:52px;height:52px;border-radius:50%;
+  font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.lb-nav:hover{background:rgba(248,244,238,0.18)}
+.lb-prev{left:2rem}.lb-next{right:2rem}
+.lb-counter{
+  margin-top:1.2rem;font-size:.75rem;letter-spacing:3px;
+  color:rgba(248,244,238,0.35);
+}
+
+/* VIDEO SECTION */
+.video-section{
+  padding:7rem 5rem;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.video-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(196,98,45,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.video-header{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+.video-wrapper{
+  position:relative;
+  max-width:960px;
+  margin:0 auto;
+}
+.video-frame{
+  position:relative;
+  width:100%;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,0.6);
+  border:1px solid rgba(184,146,74,0.2);
+  background:#0d0f11;
+  aspect-ratio:16/9;
+}
+.video-frame video,
+.video-frame iframe{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  border:none;
+}
+/* Placeholder when no video */
+.video-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:1.5rem;
+  background:linear-gradient(135deg,#0f1318 0%,#1a2030 100%);
+  padding:3rem;
+  text-align:center;
+  cursor:pointer;
+  transition:background .3s;
+  position:relative;
+}
+.video-placeholder:hover{background:linear-gradient(135deg,#141820 0%,#1e2538 100%)}
+.vp-icon{
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(196,98,45,0.15);
+  border:2px solid rgba(196,98,45,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
+  transition:all .3s;
+  position:relative;
+}
+.video-placeholder:hover .vp-icon{
+  background:rgba(196,98,45,0.25);
+  border-color:var(--terra);
+  transform:scale(1.1);
+}
+.vp-icon::after{
+  content:'';
+  position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid rgba(196,98,45,0.2);
+  animation:vpPulse 2.5s ease-in-out infinite;
+}
+@keyframes vpPulse{
+  0%,100%{transform:scale(1);opacity:.6}
+  50%{transform:scale(1.15);opacity:0}
+}
+.vp-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:300;
+  color:var(--bone);
+}
+.vp-title em{font-style:italic;color:var(--gold)}
+.vp-sub{
+  font-size:.82rem;letter-spacing:1.5px;
+  color:rgba(248,244,238,0.35);max-width:380px;line-height:1.6;
+}
+.vp-instructions{
+  margin-top:1rem;
+  display:flex;flex-direction:column;gap:.6rem;
+  align-items:center;
+}
+.vp-step{
+  display:flex;align-items:center;gap:.7rem;
+  background:rgba(248,244,238,0.05);
+  border:1px solid rgba(248,244,238,0.08);
+  border-radius:4px;padding:.6rem 1.2rem;
+  font-size:.78rem;color:rgba(248,244,238,0.5);
+  width:100%;max-width:400px;
+  letter-spacing:.5px;
+}
+.vp-step-num{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--terra);color:white;
+  font-size:.68rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+/* Corner decoration */
+.video-corner{
+  position:absolute;
+  width:60px;height:60px;
+  border-color:var(--gold);border-style:solid;
+  opacity:.4;
+}
+.video-corner.tl{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:12px 0 0 0}
+.video-corner.tr{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 12px 0 0}
+.video-corner.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 12px}
+.video-corner.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 12px 0}
+/* Caption under video */
+.video-caption{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:1.5rem;padding:0 .5rem;
+}
+.vc-left{
+  font-size:.75rem;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(248,244,238,0.3);
+}
+.vc-right{
+  font-size:.75rem;letter-spacing:1px;
+  color:rgba(248,244,238,0.25);
+}
+@media(max-width:960px){
+  .video-section{padding:5rem 2rem}
+}
+
+/* METRICS BAND */
+.metrics{
+  background:var(--ocean);
+  padding:4rem 5rem;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border-top:1px solid rgba(184,146,74,0.2);
+  border-bottom:1px solid rgba(184,146,74,0.2);
+}
+.metric{
+  text-align:center;padding:1rem;
+  border-right:1px solid rgba(184,146,74,0.2);
+}
+.metric:last-child{border-right:none}
+.m-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;color:var(--gold);line-height:1;
+}
+.m-label{
+  font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);margin-top:.4rem;
+}
+
+/* CONTACTO */
+.contacto{
+  padding:8rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:6rem;align-items:start;
+  background:var(--bone);color:var(--ink);
+}
+.contacto .section-tag{color:var(--terra)}
+.contacto .section-tag::before{background:var(--terra)}
+.contacto-body{
+  font-size:1rem;line-height:1.9;color:#555;
+  font-weight:300;margin:1.5rem 0 2rem;
+}
+.clist{display:flex;flex-direction:column;gap:.8rem}
+.citem{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.2rem;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:6px;background:white;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04);
+}
+.citem-ico{font-size:1.3rem}
+.citem strong{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--terra);display:block;margin-bottom:.2rem}
+.citem span{font-size:.92rem;color:#333}
+.cta-wa{
+  margin-top:2rem;
+  display:inline-flex;align-items:center;gap:.8rem;
+  background:#25D366;color:white;
+  padding:1rem 2.2rem;border-radius:2px;
+  font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:600;text-decoration:none;
+  box-shadow:0 8px 32px rgba(37,211,102,0.3);
+  transition:all .3s;
+}
+.cta-wa:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(37,211,102,0.4)}
+
+/* FORM */
+.form-card{
+  background:var(--ink);color:var(--bone);
+  border-radius:8px;padding:3rem;
+  box-shadow:0 30px 80px rgba(0,0,0,0.18);
+}
+.form-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:300;margin-bottom:.5rem;
+}
+.form-card h3 em{font-style:italic;color:var(--gold)}
+.form-card p{font-size:.85rem;color:rgba(248,244,238,0.45);margin-bottom:2rem}
+.fg{margin-bottom:1.2rem}
+.fg label{
+  display:block;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(248,244,238,0.45);margin-bottom:.5rem;font-weight:500;
+}
+.fg input,.fg textarea,.fg select{
+  width:100%;background:rgba(248,244,238,0.06);
+  border:1px solid rgba(248,244,238,0.12);
+  border-radius:4px;padding:.85rem 1rem;
+  color:var(--bone);font-family:'DM Sans',sans-serif;
+  font-size:.92rem;outline:none;
+  transition:border-color .25s,background .25s;
+  -webkit-appearance:none;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{
+  border-color:var(--gold);background:rgba(248,244,238,0.09);
+}
+.fg select option{background:#111;color:white}
+.fg textarea{resize:vertical;min-height:90px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{
+  width:100%;background:var(--terra);color:white;
+  border:none;padding:1rem;border-radius:2px;
+  font-family:'DM Sans',sans-serif;font-size:.8rem;
+  letter-spacing:2.5px;text-transform:uppercase;font-weight:600;
+  cursor:pointer;transition:all .3s;margin-top:.5rem;
+}
+.form-submit:hover{background:#a84f22;transform:translateY(-2px)}
+.form-success{
+  display:none;text-align:center;padding:2rem;
+}
+.form-success .check{font-size:3rem;margin-bottom:1rem}
+.form-success h4{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold)}
+.form-success p{color:rgba(248,244,238,0.5);margin-top:.5rem;font-size:.9rem}
+
+/* FOOTER */
+footer{
+  background:#060709;padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(248,244,238,0.06);
+}
+footer .fl{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;color:var(--gold);font-weight:600;letter-spacing:1px;
+}
+footer .fl span{color:rgba(248,244,238,0.35);font-weight:300}
+footer p{font-size:.75rem;color:rgba(248,244,238,0.3)}
+
+/* WA FLOAT */
+.wa{
+  position:fixed;bottom:2rem;right:2rem;z-index:400;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(37,211,102,0.4);
+  text-decoration:none;
+  animation:wap 3s ease-in-out infinite;
+  transition:transform .2s;
+}
+.wa:hover{transform:scale(1.1)}
+@keyframes wap{
+  0%,100%{box-shadow:0 8px 32px rgba(37,211,102,0.4)}
+  50%{box-shadow:0 8px 52px rgba(37,211,102,0.65),0 0 0 12px rgba(37,211,102,0.08)}
+}
+.wa svg{width:28px;height:28px}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rev.show{opacity:1;transform:translateY(0)}
+.rev-l{opacity:0;transform:translateX(-30px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rev-l.show{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:1.2rem 2rem}nav.solid{padding:.9rem 2rem}
+  .hero{grid-template-columns:1fr;height:auto;min-height:100vh}
+  .hero-right{height:50vh;order:-1}
+  .hero-right::after{background:linear-gradient(to top, var(--ink) 0%, transparent 40%)}
+  .hero-left{padding:3rem 2rem 6rem;background:transparent;position:relative}
+  .hero-left::before{display:none}
+  .hero-stats{max-width:100%;margin-top:1.8rem}
+  .sobre{grid-template-columns:1fr;padding:5rem 2rem;gap:3rem}
+  .pisos{padding:5rem 2rem}
+  .pisos-grid{grid-template-columns:1fr}
+  .gallery-section{padding:5rem 2rem}
+  .gallery-header{flex-direction:column;align-items:flex-start;gap:1.5rem}
+  .metrics{grid-template-columns:repeat(2,1fr);padding:3rem 2rem}
+  .metric{padding:.8rem;border-bottom:1px solid rgba(184,146,74,0.1)}
+  .contacto{grid-template-columns:1fr;padding:5rem 2rem;gap:3rem}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem}
+  .g-panel.restaurante{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,200px)}
+  .g-panel.restaurante .gi:nth-child(1){grid-row:span 1}
+  .g-panel.restaurante .gi:nth-child(4){grid-column:span 1}
+  .g-panel.exterior,.g-panel.ambiente{grid-template-columns:1fr;height:auto}
+  .g-panel.primer_piso{grid-template-columns:1fr;height:auto}
+  .gi{height:240px}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">BALTA <span>336</span></a>
+  <ul class="nav-links">
+    <li><a href="#sobre">El Local</a></li>
+    <li><a href="#pisos">Distribución</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto" class="nav-cta-btn">Consultar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Se Alquila · Local Comercial</div>
+    <h1 class="hero-title">
+      <em>600 m²</em>
+      <strong>Pimentel</strong>
+    </h1>
+    <p class="hero-desc">
+      Un inmueble <strong>estratégicamente ubicado</strong> frente al Supermercado SUPER, 
+      a metros de la Plaza de Armas y la Playa de Pimentel. 
+      Ideal para restaurante, comercio o salón de eventos.
+    </p>
+    <div class="hero-btns">
+      <a href="#galeria" class="btn-fill">Ver Galería ↓</a>
+      <a href="#contacto" class="btn-ghost">Consultar Precio</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-n">600</div><div class="stat-l">m² Totales</div></div>
+      <div class="hero-stat"><div class="stat-n">3</div><div class="stat-l">Niveles</div></div>
+      <div class="hero-stat"><div class="stat-n">9</div><div class="stat-l">Baños</div></div>
+      <div class="hero-stat"><div class="stat-n">2</div><div class="stat-l">Accesos</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img id="heroImg" src="" alt="Local Comercial Pimentel">
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>Local Comercial</span><span class="dot">·</span>
+    <span>600 m² Totales</span><span class="dot">·</span>
+    <span>Calle José Balta 336</span><span class="dot">·</span>
+    <span>Pimentel, Chiclayo</span><span class="dot">·</span>
+    <span>Frente a Supermercado SUPER</span><span class="dot">·</span>
+    <span>Cocina Equipada</span><span class="dot">·</span>
+    <span>9 Baños</span><span class="dot">·</span>
+    <span>Zonificación Comercial</span><span class="dot">·</span>
+    <span>Apto Restaurante</span><span class="dot">·</span>
+    <span>Se Alquila</span><span class="dot">·</span>
+    <!-- repeat -->
+    <span>Local Comercial</span><span class="dot">·</span>
+    <span>600 m² Totales</span><span class="dot">·</span>
+    <span>Calle José Balta 336</span><span class="dot">·</span>
+    <span>Pimentel, Chiclayo</span><span class="dot">·</span>
+    <span>Frente a Supermercado SUPER</span><span class="dot">·</span>
+    <span>Cocina Equipada</span><span class="dot">·</span>
+    <span>9 Baños</span><span class="dot">·</span>
+    <span>Zonificación Comercial</span><span class="dot">·</span>
+    <span>Apto Restaurante</span><span class="dot">·</span>
+    <span>Se Alquila</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- SOBRE / UBICACION -->
+<section class="sobre rev" id="sobre">
+  <div>
+    <div class="section-tag">El Inmueble</div>
+    <h2 class="section-h" style="color:var(--ink)">
+      Un local para<br><em>grandes proyectos</em>
+    </h2>
+    <div class="sobre-body" style="margin-top:1.5rem">
+      <p>Inmueble de <strong>600 m²</strong> en tres niveles, ubicado en la <strong>Calle José Balta 336, Pimentel</strong>. Posición privilegiada con alta afluencia de público: frente al supermercado SUPER, cerca de la Plaza de Armas y a pocas cuadras de la playa.</p>
+      <p>Diseñado para operar como <strong>restaurante, local comercial o centro de eventos</strong>. Cuenta con dos accesos independientes a calle, cocina industrial equipada, 9 baños distribuidos en todos los pisos y amplios espacios en cada nivel.</p>
+      <p>La zonificación del inmueble permite uso <strong>comercial y de servicios</strong>, compatible con restauración, atención al público y comercio al por menor, según parámetros del distrito de Pimentel.</p>
+    </div>
+    <div class="info-cards">
+      <div class="info-card"><span class="info-card-icon">📍</span><div><strong>Dirección Exacta</strong><span>Calle José Balta 336, Pimentel, Chiclayo, Lambayeque</span></div></div>
+      <div class="info-card"><span class="info-card-icon">📐</span><div><strong>Metraje</strong><span>600 m² totales · 3 niveles (1er piso + 2do piso + Azotea)</span></div></div>
+      <div class="info-card"><span class="info-card-icon">🏛️</span><div><strong>Zonificación</strong><span>Comercial / Restaurante / Servicios · Apto según parámetros municipales</span></div></div>
+      <div class="info-card"><span class="info-card-icon">🏪</span><div><strong>Referencia</strong><span>Frente a Supermercado SUPER · Cerca Plaza de Armas · A cuadras de la playa</span></div></div>
+    </div>
+  </div>
+  <div class="rev-l">
+    <div class="map-card">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1004.8!2d-79.9339!3d-6.8365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904cef3e6c2d4a5d%3A0x1!2sCalle+Jos%C3%A9+Balta+336%2C+Pimentel!5e0!3m2!1ses-419!2spe!4v1700000000" allowfullscreen="" loading="lazy"></iframe>
+      <div class="map-footer">
+        <span class="map-footer-icon">📍</span>
+        <div><strong>Calle José Balta 336, Pimentel</strong><small>Chiclayo · Lambayeque · Perú</small></div>
+      </div>
+      <div class="map-badges">
+        <span class="mbadge">🏪 Frente a SUPER</span>
+        <span class="mbadge">🏖️ A cuadras de la playa</span>
+        <span class="mbadge">🏛️ Cerca Plaza de Armas</span>
+        <span class="mbadge">🏢 Uso Comercial</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICAS -->
+<div class="metrics rev">
+  <div class="metric"><div class="m-num">600</div><div class="m-label">m² Área Total</div></div>
+  <div class="metric"><div class="m-num">3</div><div class="m-label">Niveles</div></div>
+  <div class="metric"><div class="m-num">9</div><div class="m-label">Baños</div></div>
+  <div class="metric"><div class="m-num">2</div><div class="m-label">Accesos a Calle</div></div>
+</div>
+
+<!-- PISOS -->
+<section class="pisos" id="pisos">
+  <div class="pisos-header rev">
+    <div class="section-tag">Distribución</div>
+    <h2 class="section-h" style="color:var(--bone)">Todo distribuido en<br><em>3 niveles</em></h2>
+  </div>
+  <div class="pisos-grid rev">
+    <div class="piso-card">
+      <span class="piso-num">01</span>
+      <div class="piso-label">Primer Piso</div>
+      <ul class="piso-list">
+        <li>2 puertas de acceso directo a la calle</li>
+        <li>Acceso desde ambas puertas a los dos pisos</li>
+        <li>6 servicios higiénicos (3 caballeros · 3 damas)</li>
+        <li>Ambientes amplios y ventilados</li>
+        <li>Cocina industrial de gran capacidad</li>
+        <li>Almacén amplio</li>
+      </ul>
+    </div>
+    <div class="piso-card">
+      <span class="piso-num">02</span>
+      <div class="piso-label">Segundo Piso</div>
+      <ul class="piso-list">
+        <li>3 servicios higiénicos (caballeros · damas · discapacitados)</li>
+        <li>Ambiente inclusivo con acceso adaptado</li>
+        <li>Salones amplios con gran luminosidad</li>
+        <li>Ventanas panorámicas con cortinas</li>
+        <li>Almacenes adicionales</li>
+        <li>Vistas al entorno</li>
+      </ul>
+    </div>
+    <div class="piso-card">
+      <span class="piso-num">AZ</span>
+      <div class="piso-label">Azotea / Terraza</div>
+      <ul class="piso-list">
+        <li>Almacén amplio en azotea</li>
+        <li>Tanque de agua propio</li>
+        <li>Acceso a terma y aire acondicionado</li>
+        <li>Espacio abierto con potencial de terraza</li>
+        <li>Vistas panorámicas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="video-header rev">
+    <div class="section-tag">Recorrido Visual</div>
+    <h2 class="section-h" style="color:var(--bone)">Conoce el local<br><em>en video</em></h2>
+    <p style="margin-top:1rem;font-size:.9rem;color:rgba(248,244,238,0.45);font-weight:300;line-height:1.7">
+      Mira cada rincón del inmueble, su amplitud, distribución y potencial.
+    </p>
+  </div>
+  <div class="video-wrapper rev">
+    <div class="video-frame" id="videoFrame">
+      <iframe
+        src="https://www.youtube.com/embed/twoLZ0lOcdw?rel=0&modestbranding=1&color=white"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="width:100%;height:100%;border:none;display:block">
+      </iframe>
+      <div class="video-corner tl"></div>
+      <div class="video-corner tr"></div>
+      <div class="video-corner bl"></div>
+      <div class="video-corner br"></div>
+    </div>
+    <div class="video-caption">
+      <span class="vc-left">Calle José Balta 336 · Pimentel</span>
+      <span class="vc-right">600 m² · 3 Niveles</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="galeria">
+  <div class="gallery-header rev">
+    <div>
+      <div class="section-tag">Galería Fotográfica</div>
+      <h2 class="section-h" style="color:var(--bone)">Recorre cada<br><em>espacio</em></h2>
+    </div>
+    <div class="gallery-tabs">
+      <button class="gtab active" data-panel="exterior">Fachada</button>
+      <button class="gtab" data-panel="primer_piso">1er Piso</button>
+      <button class="gtab" data-panel="restaurante">Salón</button>
+      <button class="gtab" data-panel="cocina">Cocina</button>
+      <button class="gtab" data-panel="ambiente">Eventos</button>
+    </div>
+  </div>
+  <div class="gallery-panels">
+
+    <div class="g-panel exterior active" id="panel-exterior">
+      <!-- filled by JS -->
+    </div>
+    <div class="g-panel primer_piso" id="panel-primer_piso"></div>
+    <div class="g-panel restaurante" id="panel-restaurante"></div>
+    <div class="g-panel cocina" id="panel-cocina"></div>
+    <div class="g-panel ambiente" id="panel-ambiente"></div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="rev">
+    <div class="section-tag">Contacto</div>
+    <h2 class="section-h" style="color:var(--ink)">¿Listo para<br><em>visitarlo?</em></h2>
+    <p class="contacto-body">Contáctanos para coordinar una visita, resolver dudas sobre condiciones de alquiler o recibir más información del inmueble.</p>
+    <div class="clist">
+      <div class="citem"><span class="citem-ico">📍</span><div><strong>Dirección</strong><span>Calle José Balta 336, Pimentel, Chiclayo</span></div></div>
+      <div class="citem"><span class="citem-ico">📐</span><div><strong>Metraje Total</strong><span>600 m² · 3 niveles</span></div></div>
+      <div class="citem"><span class="citem-ico">🏛️</span><div><strong>Zonificación</strong><span>Comercial / Restaurante / Servicios</span></div></div>
+      <div class="citem"><span class="citem-ico">📱</span><div><strong>Contacto</strong><span>Escríbenos al inbox o WhatsApp</span></div></div>
+    </div>
+    <a href="https://wa.me/51999999999?text=Hola%2C+me+interesa+el+local+de+600m%C2%B2+en+Pimentel%2C+Calle+Jos%C3%A9+Balta+336" class="cta-wa" target="_blank">
+      <svg viewBox="0 0 24 24" width="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir por WhatsApp
+    </a>
+  </div>
+  <div class="rev-l">
+    <div class="form-card">
+      <h3>Solicitar <em>información</em></h3>
+      <p>Completa el formulario y te respondemos a la brevedad.</p>
+
+      <div id="formContent">
+        <form id="contactForm" action="https://formspree.io/f/mojkrbne" method="POST">
+          <div class="fg-row">
+            <div class="fg">
+              <label>Nombre</label>
+              <input type="text" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="fg">
+              <label>Teléfono</label>
+              <input type="tel" name="telefono" placeholder="+51 9XX XXX XXX">
+            </div>
+          </div>
+          <div class="fg">
+            <label>Correo electrónico</label>
+            <input type="email" name="email" placeholder="tu@correo.com" required>
+          </div>
+          <div class="fg">
+            <label>Tipo de uso</label>
+            <select name="tipo_de_uso">
+              <option value="">Selecciona...</option>
+              <option>Restaurante / Cevichería</option>
+              <option>Local Comercial</option>
+              <option>Centro de Eventos</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Mensaje</label>
+            <textarea name="mensaje" placeholder="Cuéntanos tu proyecto o consulta..."></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Enviar Consulta →</button>
+        </form>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="check">✅</div>
+        <h4>¡Consulta enviada!</h4>
+        <p>Nos pondremos en contacto contigo a la brevedad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">BALTA <span>336 · Pimentel</span></div>
+  <p>Calle José Balta 336, Pimentel · Chiclayo · Lambayeque · Perú</p>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/51999999999?text=Hola%2C+me+interesa+el+local+de+600m%C2%B2+en+Pimentel" class="wa" target="_blank">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="lbClose()">✕</button>
+  <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<script>
+const IMG_EXTERIOR = [
+  "fotos/exterior-1.jpg",
+  "fotos/exterior-2.jpg",
+];
+const IMG_PRIMER_PISO = [
+  "fotos/piso1-1.jpg",
+  "fotos/piso1-2.jpg",
+  "fotos/piso1-3.jpg",
+];
+const IMG_RESTAURANTE = [
+  "fotos/salon-1.jpg",
+  "fotos/salon-2.jpg",
+  "fotos/salon-3.jpg",
+  "fotos/salon-4.jpg",
+  "fotos/salon-5.jpg",
+  "fotos/salon-6.jpg",
+  "fotos/salon-7.jpg",
+  "fotos/salon-8.jpg",
+  "fotos/salon-9.jpg",
+];
+const IMG_COCINA = [
+  "fotos/cocina-1.jpg",
+  "fotos/cocina-2.jpg",
+  "fotos/cocina-3.jpg",
+];
+const IMG_AMBIENTE = [
+  "fotos/eventos-1.jpg",
+  "fotos/eventos-2.jpg",
+];
+
+// Categorized sets
+const SETS = {
+  exterior:    IMG_EXTERIOR,
+  primer_piso: IMG_PRIMER_PISO,
+  restaurante: IMG_RESTAURANTE,
+  cocina:      IMG_COCINA,
+  ambiente:    IMG_AMBIENTE,
+};
+
+// Hero: fade through exterior photos
+let hi = 0;
+const heroImg = document.getElementById('heroImg');
+heroImg.src = IMG_EXTERIOR[0];
+setInterval(() => {
+  hi = (hi + 1) % IMG_EXTERIOR.length;
+  heroImg.style.opacity = 0;
+  setTimeout(() => { heroImg.src = IMG_EXTERIOR[hi]; heroImg.style.opacity = 1; }, 600);
+}, 5000);
+heroImg.style.transition = 'opacity .6s';
+
+// Build gallery panels
+let lbSet = [], lbIdx = 0;
+
+function buildPanel(panelId, imgs) {
+  const el = document.getElementById('panel-' + panelId);
+  imgs.forEach((src, i) => {
+    const d = document.createElement('div');
+    d.className = 'gi';
+    d.innerHTML = `<img src="${src}" loading="lazy" alt=""><div class="gi-overlay"></div><div class="gi-zoom">⤢</div>`;
+    d.onclick = () => lbOpen(imgs, i);
+    el.appendChild(d);
+  });
+}
+
+Object.entries(SETS).forEach(([k, v]) => buildPanel(k, v));
+
+// Tabs
+document.querySelectorAll('.gtab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gtab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.g-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+  });
+});
+
+// Lightbox
+function lbOpen(set, idx) {
+  lbSet = set; lbIdx = idx;
+  document.getElementById('lbImg').src = set[idx];
+  document.getElementById('lbCounter').textContent = (idx+1) + ' / ' + set.length;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function lbClose() {
+  document.getElementById('lb').classList.remove('on');
+  document.body.style.overflow = '';
+}
+function lbNav(d) {
+  lbIdx = (lbIdx + d + lbSet.length) % lbSet.length;
+  document.getElementById('lbImg').src = lbSet[lbIdx];
+  document.getElementById('lbCounter').textContent = (lbIdx+1) + ' / ' + lbSet.length;
+}
+document.getElementById('lb').addEventListener('click', e => { if(e.target.id==='lb') lbClose(); });
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape') lbClose();
+  if(e.key==='ArrowRight') lbNav(1);
+  if(e.key==='ArrowLeft') lbNav(-1);
+});
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('solid', window.scrollY > 80);
+});
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rev,.rev-l').forEach(el => obs.observe(el));
+
+// Custom cursor
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  ring.style.left = e.clientX + 'px';
+  ring.style.top = e.clientY + 'px';
+});
+
+// Form
+// Formspree form submission
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  const data = new FormData(this);
+  try {
+    const res = await fetch('https://formspree.io/f/mojkrbne', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      btn.textContent = 'Error al enviar. Intenta de nuevo.';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'Error de conexión. Intenta de nuevo.';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
